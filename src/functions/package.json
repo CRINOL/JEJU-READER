@@ -1,0 +1,11 @@
+{
+    "name": "jeju-tickets-functions",
+    "version": "0.0.1",
+    "author": "Snapro Business Software",
+    "dependencies": {
+        "canvas": "^3.2.0",
+        "cors": "^2.8.5",
+        "express": "^5.1.0",
+        "jsbarcode": "^3.12.1"
+    }
+}

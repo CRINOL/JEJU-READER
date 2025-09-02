@@ -1,0 +1,7 @@
+{
+  "name": "jeju-tickets",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
