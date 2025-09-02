@@ -10,4 +10,24 @@
       <ion-title size="large">scanner</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="top">
+          <h3>{{title}}</h3>
+          <h6>{{"Processed: " + processed_total + "/" + tickets_total }}</h6>
+          <h6>{{"Failed: " + failed_total}}</h6>
+        </div>
+        <div>
+          <!-- some.component.html -->
+          <zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+        </div>
+
+        <ion-row>
+          
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

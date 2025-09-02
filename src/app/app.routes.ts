@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ScannerPage } from './scanner/scanner.page';
 
 export const routes: Routes = [
   {
@@ -9,7 +10,8 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },  {
+  },
+  {
     path: 'scanner',
     loadComponent: () => import('./scanner/scanner.page').then( m => m.ScannerPage)
   }
