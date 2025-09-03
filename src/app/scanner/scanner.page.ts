@@ -18,7 +18,9 @@ export class ScannerPage implements OnInit {
   tickets_total: number = 0
   processed_total: number = 0;
   failed_total: number = 0;
-
+  conn_stat = "Disconnected"
+  dev_vrf = "N/A"
+  
   allowedFormats = [BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/];
 
   constructor() { }

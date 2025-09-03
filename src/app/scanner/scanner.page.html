@@ -16,8 +16,15 @@
       <ion-col size="12">
         <div class="top">
           <h3>{{title}}</h3>
-          <h6>{{"Processed: " + processed_total + "/" + tickets_total }}</h6>
-          <h6>{{"Failed: " + failed_total}}</h6>
+          <div>
+            <img src="../../assets/icon/favicon.png" />
+            <h6>Device Info</h6>
+          </div>
+          <div class="Status">
+            <h6>{{"Status: " + conn_stat}}</h6>
+            <h6>{{"Verification: " + dev_vrf}}</h6>
+            <h6>{{"Load: " + tickets_total}}</h6>
+          </div>
         </div>
         <div>
           <!-- some.component.html -->
@@ -25,7 +32,12 @@
         </div>
 
         <ion-row>
-          
+          <div class="info-card">
+            <div class="progress">
+              <h3>{{processed_total}}</h3>
+              <h6>PROCESSED TICKETS</h6>
+            </div>
+          </div>
         </ion-row>
       </ion-col>
     </ion-row>
