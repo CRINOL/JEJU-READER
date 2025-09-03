@@ -7,7 +7,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">scanner</ion-title>
+      <ion-title size="large">Jeju Tickets</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -16,11 +16,11 @@
       <ion-col size="12">
         <div class="top">
           <h3>{{title}}</h3>
-          <div>
+          <div class="title">
             <img src="../../assets/icon/favicon.png" />
             <h6>Device Info</h6>
           </div>
-          <div class="Status">
+          <div class="status">
             <h6>{{"Status: " + conn_stat}}</h6>
             <h6>{{"Verification: " + dev_vrf}}</h6>
             <h6>{{"Load: " + tickets_total}}</h6>
@@ -28,16 +28,20 @@
         </div>
         <div>
           <!-- some.component.html -->
-          <zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+          <zxing-scanner [formats]="allowedFormats" (scanSuccess)="onCodeResult($event)" (scanError)="onError($event)"></zxing-scanner>
         </div>
 
         <ion-row>
-          <div class="info-card">
+          <mat-card class="info-card">
             <div class="progress">
               <h3>{{processed_total}}</h3>
               <h6>PROCESSED TICKETS</h6>
+              <div class="bar">
+                <mat-progress-bar mode="determinate" [value]="(processed_total/tickets_total)*100"></mat-progress-bar>
+                <h6>{{ "PROGRESS: " + (processed_total/tickets_total)*100 + "%"}}</h6>
+              </div>
             </div>
-          </div>
+          </mat-card>
         </ion-row>
       </ion-col>
     </ion-row>
