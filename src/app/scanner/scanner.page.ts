@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonCol, IonContent, IonGrid, IonHeader, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeFormat } from '@zxing/library';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatCardModule} from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-scanner',
@@ -24,20 +24,30 @@ export class ScannerPage implements OnInit {
   failed_total: number = 0;
   conn_stat = "Disconnected"
   dev_vrf = "N/A"
-  scannedResult = ""
-  
-  allowedFormats = [BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/];
+  scanResult: string | null = null;
+  availableDevices: MediaDeviceInfo[] = [];
+  selectedDevice: MediaDeviceInfo | null = null;
+
+  allowedFormats = [BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onCodeResult(result: string) {
-    this.scannedResult = result;
+  onCamerasFound(devices: MediaDeviceInfo[]): void {
+    this.availableDevices = devices;
+    if (devices && devices.length > 0) {
+      this.selectedDevice = devices[0]; // Select the first camera by default
+    }
   }
 
-  onError(error: any) {
-    console.error('Barcode scanning error:', error);
+  onScanSuccess(result: string): void {
+    this.scanResult = result;
+    console.log('Scan successful:', result);
+  }
+
+  onScanError(error: Error): void {
+    console.error('Scan error:', error);
   }
 }

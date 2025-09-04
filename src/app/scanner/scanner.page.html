@@ -27,8 +27,14 @@
           </div>
         </div>
         <div>
-          <!-- some.component.html -->
-          <zxing-scanner [formats]="allowedFormats" (scanSuccess)="onCodeResult($event)" (scanError)="onError($event)"></zxing-scanner>
+          <zxing-scanner
+            [autofocusEnabled]="true"
+            (camerasFound)="onCamerasFound($event)"
+            (scanSuccess)="onScanSuccess($event)"
+            (scanError)="onScanError($event)"
+          ></zxing-scanner>
+
+          <p *ngIf="scanResult">Scan Result: {{ scanResult }}</p>
         </div>
 
         <ion-row>
@@ -37,8 +43,13 @@
               <h3>{{processed_total}}</h3>
               <h6>PROCESSED TICKETS</h6>
               <div class="bar">
-                <mat-progress-bar mode="determinate" [value]="(processed_total/tickets_total)*100"></mat-progress-bar>
-                <h6>{{ "PROGRESS: " + (processed_total/tickets_total)*100 + "%"}}</h6>
+                <mat-progress-bar
+                  mode="determinate"
+                  [value]="(processed_total/tickets_total)*100"
+                ></mat-progress-bar>
+                <h6>
+                  {{ "PROGRESS: " + (processed_total/tickets_total)*100 + "%"}}
+                </h6>
               </div>
             </div>
           </mat-card>
