@@ -26,19 +26,21 @@ export class ScannerPage implements OnInit {
   dev_vrf = "N/A"
   scanResult: string | null = null;
   availableDevices: MediaDeviceInfo[] = [];
-  selectedDevice: MediaDeviceInfo | null = null;
+  selectedDevice: MediaDeviceInfo | undefined
 
   allowedFormats = [BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX];
 
   constructor() { }
 
   ngOnInit() {
+    this.scanResult = "Initializing..."
   }
 
   onCamerasFound(devices: MediaDeviceInfo[]): void {
     this.availableDevices = devices;
     if (devices && devices.length > 0) {
-      this.selectedDevice = devices[0]; // Select the first camera by default
+      this.scanResult = "Using back camera"
+      this.selectedDevice = devices[1]; // Select the first camera by default
     }
   }
 
@@ -48,6 +50,7 @@ export class ScannerPage implements OnInit {
   }
 
   onScanError(error: Error): void {
+    this.scanResult = "Error during scan: " + error
     console.error('Scan error:', error);
   }
 }

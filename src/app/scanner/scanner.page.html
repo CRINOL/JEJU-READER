@@ -27,12 +27,9 @@
           </div>
         </div>
         <div>
-          <zxing-scanner
-            [autofocusEnabled]="true"
-            (camerasFound)="onCamerasFound($event)"
-            (scanSuccess)="onScanSuccess($event)"
-            (scanError)="onScanError($event)"
-          ></zxing-scanner>
+          <zxing-scanner [formats]="allowedFormats" [autostart]="true" [autofocusEnabled]="true"
+            [device]="selectedDevice" (camerasFound)="onCamerasFound($event)" (scanSuccess)="onScanSuccess($event)"
+            (scanError)="onScanError($event)"></zxing-scanner>
 
           <p *ngIf="scanResult">Scan Result: {{ scanResult }}</p>
         </div>
@@ -43,10 +40,7 @@
               <h3>{{processed_total}}</h3>
               <h6>PROCESSED TICKETS</h6>
               <div class="bar">
-                <mat-progress-bar
-                  mode="determinate"
-                  [value]="(processed_total/tickets_total)*100"
-                ></mat-progress-bar>
+                <mat-progress-bar mode="determinate" [value]="(processed_total/tickets_total)*100"></mat-progress-bar>
                 <h6>
                   {{ "PROGRESS: " + (processed_total/tickets_total)*100 + "%"}}
                 </h6>
