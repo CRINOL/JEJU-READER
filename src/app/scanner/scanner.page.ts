@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonCol, IonContent, IonGrid, IonHeader, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeFormat } from '@zxing/library';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -12,9 +12,8 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './scanner.page.html',
   styleUrls: ['./scanner.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonRow, IonCol, ZXingScannerModule, MatProgressBarModule, MatCardModule
-
-  ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonRow, IonCol,
+     ZXingScannerModule, MatProgressBarModule, MatCardModule, IonButtons, IonButton, IonIcon]
 })
 export class ScannerPage implements OnInit {
 
