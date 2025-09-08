@@ -3,7 +3,7 @@
     <ion-title>Jeju Tickets</ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon name="cellular" size="medium" color="warning"></ion-icon>
+        Clicker
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -24,14 +24,9 @@
       <ion-col size="12">
         <div class="top">
           <h3>{{title}}</h3>
-          <div class="title">
-            <img src="../../assets/icon/favicon.png" />
-            <h6>Device Info</h6>
-          </div>
           <div class="status">
-            <h6>{{"Status: " + conn_stat}}</h6>
-            <h6>{{"Verification: " + dev_vrf}}</h6>
-            <h6>{{"Load: " + tickets_total}}</h6>
+            <ion-icon name="checkmark" color="danger"></ion-icon>
+            <h6>{{scn_state}}</h6>
           </div>
         </div>
         <div>
