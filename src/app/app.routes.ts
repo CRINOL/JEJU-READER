@@ -8,13 +8,14 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'scanner',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
     path: 'scanner',
     loadComponent: () => import('./scanner/scanner.page').then( m => m.ScannerPage)
-  },  {
+  },
+  {
     path: 'sales-history',
     loadComponent: () => import('./sales-history/sales-history.page').then( m => m.SalesHistoryPage)
   },

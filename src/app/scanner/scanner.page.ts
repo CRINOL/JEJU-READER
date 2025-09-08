@@ -38,6 +38,9 @@ export class ScannerPage implements OnInit {
       case "verify": this.scn_state = "Verify Ticket"
         this.scn_op = 1;
         break;
+      case "sale": this.scn_state = "Sale Ticket"
+        this.scn_op = 2;  
+        break;
       default:
     }
   }
@@ -60,6 +63,11 @@ export class ScannerPage implements OnInit {
 
   onScanSuccess(result: string): void {
     this.scanResult = result;
+    if(this.scn_op == 1){
+      this.verifyTicket(result)
+    }else if(this.scn_op == 2){
+      this.saleTicket(result)
+    }
     console.log('Scan successful:', result);
   }
 
