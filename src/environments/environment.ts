@@ -3,7 +3,27 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:  {
+
+  apiKey: "AIzaSyC1-m8EpHJbiLKU4oVW1DJo_chXvUKQHZM",
+
+  authDomain: "jeju-tickets.firebaseapp.com",
+
+  databaseURL: "https://jeju-tickets-default-rtdb.firebaseio.com",
+
+  projectId: "jeju-tickets",
+
+  storageBucket: "jeju-tickets.firebasestorage.app",
+
+  messagingSenderId: "528568465161",
+
+  appId: "1:528568465161:web:4f26e044e8dff73eef85d8",
+
+  measurementId: "G-51F17LM0YV"
+
+}
+
 };
 
 /*

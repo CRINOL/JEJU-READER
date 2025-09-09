@@ -7,6 +7,7 @@ import { BarcodeFormat } from '@zxing/library';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { Args } from '../services/args';
+import { Database, ref, set, onValue, push } from '@angular/fire/database';
 
 @Component({
   selector: 'app-scanner',
@@ -30,7 +31,7 @@ export class ScannerPage implements OnInit {
 
   allowedFormats = [BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX];
 
-  constructor(private args: Args) { }
+  constructor(private args: Args, private db: Database) { }
 
   ngOnInit() {
     this.scanResult = "Initializing..."
@@ -39,7 +40,7 @@ export class ScannerPage implements OnInit {
         this.scn_op = 1;
         break;
       case "sale": this.scn_state = "Sale Ticket"
-        this.scn_op = 2;  
+        this.scn_op = 2;
         break;
       default:
     }
@@ -47,10 +48,13 @@ export class ScannerPage implements OnInit {
 
   verifyTicket(pk: string) {
     //connect to db to check with pk exists and is unsold
+    this.scanResult = "Verifying Ticket..."
+    
   }
 
   saleTicket(pk: string) {
     //connect to db to check if pk exists, is unsold and then mark it as sold together with any extra info like phone number and name(useful in verification in the case of a lost ticket)... update it's logging chain and update sales-history for the device
+    this.scanResult = "Selling Ticket..."
   }
 
   onCamerasFound(devices: MediaDeviceInfo[]): void {
@@ -61,13 +65,24 @@ export class ScannerPage implements OnInit {
     }
   }
 
+  verifyScan(pk: string) {
+    if (pk.length == 16) {
+      return /[^a-zA-Z0-9]/.test(pk)
+    } else {
+      return -1
+    }
+  }
+
   onScanSuccess(result: string): void {
     this.scanResult = result;
-    if(this.scn_op == 1){
-      this.verifyTicket(result)
-    }else if(this.scn_op == 2){
-      this.saleTicket(result)
+    if (this.verifyScan(result)) {
+      if (this.scn_op == 1) {
+        this.verifyTicket(result)
+      } else if (this.scn_op == 2) {
+        this.saleTicket(result)
+      }
     }
+    this.scanResult = "Ticket Unknown!"
     console.log('Scan successful:', result);
   }
 
