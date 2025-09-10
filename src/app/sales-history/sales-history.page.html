@@ -7,7 +7,59 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">sales-history</ion-title>
+      <ion-title size="large">Sales History</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      @for(ticket of recent_sales;track $index){
+      <ion-col size="12"> 
+        <div class="sale">
+          <div class="icon">
+            <ion-icon name="settings"></ion-icon>
+          </div>
+          <div class="text">
+            <h4>{{ticket.prn}}</h4>
+            <h6>{{ticket.long_ago}}</h6>
+          </div>
+        </div>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+
+  <div class="ticket-review">
+    <h3>Ticket Review</h3>
+    <div class="ticket-cst">
+      <h5>JEJU TICKETS</h5>
+      <img src="../../assets/shapes.svg">
+      <h6>{{active_pk}}</h6>
+    </div>
+
+    <h2>TICKET SOLD!</h2>
+
+    <div class="extra info">
+      <div class="icon">
+        <ion-icon name="settings"></ion-icon>
+      </div>
+      <div class="text">
+        <h4>{{"Alias: " + active_ticket.log.holder.name}}</h4>
+        <h4>{{"Phone: " + active_ticket.log.holder.phone}}</h4>
+      </div>
+    </div>
+
+    <div class="extra info">
+      <div class="icon">
+        <ion-icon name="settings"></ion-icon>
+      </div>
+      <div class="text">
+        <h4>{{"Created: " + active_ticket.date}}</h4>
+        <h4>{{"Unlock: " + active_ticket.log.unlock}}</h4>
+        <h4>{{"Sold: " + active_ticket.log.sold}}</h4>
+      </div>
+    </div>
+
+    <button class="rc-btn">RECLAIM THIS TICKET</button>
+  </div>
 </ion-content>

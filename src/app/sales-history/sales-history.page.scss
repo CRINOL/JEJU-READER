@@ -1,0 +1,119 @@
+.sale {
+    display: flex;
+    flex-direction: column;
+}
+
+.sale .icon {
+    border-radius: 8px;
+    background: #222;
+    padding: 8px;
+}
+
+.sale .icon ion-icon {
+    max-width: 32px;
+    margin: 8px;
+}
+
+.sale .text {
+    padding-left: 16px;
+}
+
+.sale .text h4 {
+    color: #222;
+    margin:0;
+    padding: 0;
+    font-size: 13.5pt;
+    font-weight: 600;
+}
+
+.sale .text h6 {
+    color: #555;
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.ticket-review {
+    position:absolute;
+    top: 64px;
+    bottom:0;
+    right: 0;
+    top:0;
+    background-color: #fff;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+    padding: 16px;
+}
+
+.ticket-review h3 {
+    padding:0;
+    margin: 0;
+    font-size: 18pt;
+}
+
+.ticket-review .ticket-cst {
+    border-radius: 16px;
+    //add a box shadow here
+    padding: 16px;
+}
+
+.ticket-review .ticket-cst h5 {
+    color: #000;
+    text-align: center;
+    margin:0;
+    padding:0;
+}
+
+.ticket-review .ticket-cst img {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 16px;
+}
+
+.ticket-review .ticket-cst h6 {
+    margin:0;
+    padding: 0;
+    padding-top: 4px;
+    text-align: center;
+}
+
+.extra-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.extra-info .icon {
+    border-radius: 8px;
+    background: #222;
+    padding: 8px;
+}
+
+.extra-info .icon ion-icon {
+    max-width: 32px;
+    margin: 8px;
+}
+
+.extra-info .text {
+    padding-left: 16px;
+}
+
+.extra-info .text h4 {
+    color: #222;
+    margin:0;
+    padding: 0;
+    font-size: 13.5pt;
+    font-weight: 600;
+}
+
+.extra-info .rc-btn {
+    color: #fff;
+    background-color: #eb144c;
+    border-radius: 32px;
+    padding: 16px;
+    width:80%;
+    margin-left: 10%;
+    bottom: 16px;
+    position:absolute
+}
+

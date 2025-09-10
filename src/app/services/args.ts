@@ -5,6 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class Args {
   scanner_args = ""
+  event_data = {}
+
+  setEventData(data:any){
+    this.event_data = data
+  }
+
+  getEventData(){
+    return this.event_data;
+  }
 
   setScannerArgs(args:string){
     this.scanner_args = args

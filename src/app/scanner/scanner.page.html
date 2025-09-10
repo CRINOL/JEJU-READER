@@ -29,11 +29,16 @@
             <h6>{{scn_state}}</h6>
           </div>
         </div>
-        <div>
+        <div class="scanner-area">
           <zxing-scanner [formats]="allowedFormats" [autostart]="true" [autofocusEnabled]="true"
             [device]="selectedDevice" (camerasFound)="onCamerasFound($event)" (scanSuccess)="onScanSuccess($event)"
             (scanError)="onScanError($event)"></zxing-scanner>
-
+            <div class="scan-res">
+              <ion-icon></ion-icon>
+              <h4>{{ongoing_op}}</h4>
+              <p>{{op_exp}}</p>
+              <button>{{next_op}}</button>
+            </div>
           <p *ngIf="scanResult">Scan Result: {{ scanResult }}</p>
         </div>
 
